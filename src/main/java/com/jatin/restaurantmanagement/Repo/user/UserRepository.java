@@ -1,4 +1,4 @@
-package com.jatin.restaurantmanagement.Repo;
+package com.jatin.restaurantmanagement.Repo.user;
 
 
 import java.util.Optional;

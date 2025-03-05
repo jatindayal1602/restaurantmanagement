@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.jatin.restaurantmanagement.Data.User;
 import com.jatin.restaurantmanagement.Model.UserRegistrationDTO;
-import com.jatin.restaurantmanagement.Service.UserService;
+import com.jatin.restaurantmanagement.Service.User.UserService;
 
 import java.util.List;
 

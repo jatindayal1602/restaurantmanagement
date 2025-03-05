@@ -1,11 +1,11 @@
-package com.jatin.restaurantmanagement.Service;
+package com.jatin.restaurantmanagement.Service.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jatin.restaurantmanagement.Data.User;
 import com.jatin.restaurantmanagement.Model.UserRegistrationDTO;
-import com.jatin.restaurantmanagement.Repo.UserRepository;
+import com.jatin.restaurantmanagement.Repo.user.UserRepository;
 
 import java.util.List;
 
