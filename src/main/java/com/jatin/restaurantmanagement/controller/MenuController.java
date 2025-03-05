@@ -1,7 +1,7 @@
 package com.jatin.restaurantmanagement.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.jatin.restaurantmanagement.Data.menu.MenuItem;
@@ -22,8 +22,9 @@ public class MenuController {
     }
 
     @GetMapping("/items/{id}")
-    public Optional<MenuItem> getItemById(@PathVariable Long id) {
-        return menuService.getItemById(id);
+    public ResponseEntity<MenuItem> getItemById(@PathVariable Long id) {
+        MenuItem item = menuService.getItemById(id);
+        return ResponseEntity.ok(item);
     }
 
     @PostMapping("/items")
@@ -35,6 +36,7 @@ public class MenuController {
     public void deleteItem(@PathVariable Long id) {
         menuService.deleteItem(id);
     }
+
     @GetMapping("/categories")
     public List<String> getDistinctCategories() {
         return menuService.getDistinctCategories();

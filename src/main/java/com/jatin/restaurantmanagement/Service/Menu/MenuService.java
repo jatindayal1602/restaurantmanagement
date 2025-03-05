@@ -2,12 +2,12 @@ package com.jatin.restaurantmanagement.Service.Menu;
 
 import com.jatin.restaurantmanagement.Data.menu.MenuItem;
 import com.jatin.restaurantmanagement.Repo.Menu.MenuItemRepository;
+import com.jatin.restaurantmanagement.exceptions.MenuItemNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MenuService {
@@ -18,8 +18,9 @@ public class MenuService {
         return itemRepository.findAll();
     }
 
-    public Optional<MenuItem> getItemById(Long id) {
-        return itemRepository.findById(id);
+    public MenuItem getItemById(Long id) {
+        return itemRepository.findById(id)
+                .orElseThrow(() -> new MenuItemNotFoundException("Menu item with ID " + id + " not found"));
     }
 
     public MenuItem createItem(MenuItem item) {
@@ -27,13 +28,25 @@ public class MenuService {
     }
 
     public void deleteItem(Long id) {
+        if (!itemRepository.existsById(id)) {
+            throw new MenuItemNotFoundException("Menu item with ID " + id + " does not exist");
+        }
         itemRepository.deleteById(id);
     }
 
     public List<MenuItem> getItemsByCategory(String category) {
-        return itemRepository.findByCategory(category);
+        List<MenuItem> items = itemRepository.findByCategory(category);
+        if (items.isEmpty()) {
+            throw new MenuItemNotFoundException("No items found in category: " + category);
+        }
+        return items;
     }
+
     public List<String> getDistinctCategories() {
-        return itemRepository.findDistinctCategories();
+        List<String> categories = itemRepository.findDistinctCategories();
+        if (categories.isEmpty()) {
+            throw new MenuItemNotFoundException("No categories found in the menu");
+        }
+        return categories;
     }
 }

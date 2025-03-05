@@ -1,11 +1,15 @@
 package com.jatin.restaurantmanagement.Data.order;
 
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.util.Date;
 import java.util.List;
 
-
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "orders")
 public class Order {
     @Id
@@ -15,37 +19,13 @@ public class Order {
     private String customerName;
     
     @Temporal(TemporalType.TIMESTAMP)
-    private Date orderDate;
+    private Date orderDate = new Date();
 
-    private String status; // PENDING, COMPLETED
+    private String status = "PENDING"; // PENDING, COMPLETED
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "order_id")
     private List<OrderDetail> orderDetails;
 
     private double totalAmount;
-
-    public Order() {
-        this.orderDate = new Date();
-        this.status = "PENDING";
-    }
-
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getCustomerName() { return customerName; }
-    public void setCustomerName(String customerName) { this.customerName = customerName; }
-
-    public Date getOrderDate() { return orderDate; }
-    public void setOrderDate(Date orderDate) { this.orderDate = orderDate; }
-
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
-
-    public List<OrderDetail> getOrderDetails() { return orderDetails; }
-    public void setOrderDetails(List<OrderDetail> orderDetails) { this.orderDetails = orderDetails; }
-
-    public double getTotalAmount() { return totalAmount; }
-    public void setTotalAmount(double totalAmount) { this.totalAmount = totalAmount; }
 }

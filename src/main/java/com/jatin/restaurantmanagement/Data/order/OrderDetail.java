@@ -2,8 +2,12 @@ package com.jatin.restaurantmanagement.Data.order;
 
 import com.jatin.restaurantmanagement.Data.menu.MenuItem;
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "order_details")
 public class OrderDetail {
     @Id
@@ -16,21 +20,4 @@ public class OrderDetail {
 
     @Column(nullable = false)
     private int quantity;
-
-    public OrderDetail() {}
-
-    public OrderDetail(MenuItem menuItem, int quantity) {
-        this.menuItem = menuItem;
-        this.quantity = quantity;
-    }
-
-    // Getters & Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public MenuItem getMenuItem() { return menuItem; }
-    public void setMenuItem(MenuItem menuItem) { this.menuItem = menuItem; }
-
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
 }
