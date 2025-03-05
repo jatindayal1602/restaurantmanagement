@@ -1,4 +1,4 @@
-package com.jatin.restaurantmanagement.Data;
+package com.jatin.restaurantmanagement.Data.user;
 
 
 

@@ -1,6 +1,4 @@
-package com.jatin.restaurantmanagement.Data;
-
-
+package com.jatin.restaurantmanagement.Data.menu;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,7 +12,7 @@ public class MenuItem {
     private String name;
 
     @Column(nullable = false)
-    private double price;
+    private double price; // Price in Rupees
 
     @Column(nullable = false)
     private int popularity; // Out of 10

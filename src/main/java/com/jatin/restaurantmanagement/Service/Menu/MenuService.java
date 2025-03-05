@@ -1,6 +1,6 @@
 package com.jatin.restaurantmanagement.Service.Menu;
 
-import com.jatin.restaurantmanagement.Data.MenuItem;
+import com.jatin.restaurantmanagement.Data.menu.MenuItem;
 import com.jatin.restaurantmanagement.Repo.Menu.MenuItemRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

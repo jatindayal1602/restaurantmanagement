@@ -1,8 +1,9 @@
 package com.jatin.restaurantmanagement.Repo.Menu;
 
-import com.jatin.restaurantmanagement.Data.MenuItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+
+import com.jatin.restaurantmanagement.Data.menu.MenuItem;
 
 import java.util.List;
 

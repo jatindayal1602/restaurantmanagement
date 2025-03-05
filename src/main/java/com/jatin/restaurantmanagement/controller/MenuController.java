@@ -4,7 +4,7 @@ package com.jatin.restaurantmanagement.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.jatin.restaurantmanagement.Data.MenuItem;
+import com.jatin.restaurantmanagement.Data.menu.MenuItem;
 import com.jatin.restaurantmanagement.Service.Menu.MenuService;
 
 import java.util.List;

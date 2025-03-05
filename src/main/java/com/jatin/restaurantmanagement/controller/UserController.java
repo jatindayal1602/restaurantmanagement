@@ -3,7 +3,7 @@ package com.jatin.restaurantmanagement.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.jatin.restaurantmanagement.Data.User;
+import com.jatin.restaurantmanagement.Data.user.User;
 import com.jatin.restaurantmanagement.Model.UserRegistrationDTO;
 import com.jatin.restaurantmanagement.Service.User.UserService;
 
